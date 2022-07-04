@@ -1,0 +1,258 @@
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  width: 100%;
+  max-width: inherit;
+  padding: 30px 15px;
+  background-color: $colorBgDark;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 70px;
+
+  @include e(logo) {
+  }
+
+  @include e(burger-label) {
+    text-transform: uppercase;
+    color: $colorWhite;
+  }
+
+  @include e(burger-container) {
+    &::before {
+      display: block;
+    }
+  }
+}
+
+.width-container {
+  @include e(header) {
+    display: flex;
+
+    justify-content: space-between;
+    // align-items: center;
+  }
+}
+
+.menu {
+  // padding-top: 30px;
+  // width: 100%;
+
+  @include e(list) {
+    & > li {
+      position: relative;
+      margin-left: 20px;
+      padding: 6px 0;
+
+      &:not(:last-of-type)::after {
+        content: '';
+        display: block;
+        position: absolute;
+        border-top: 1px solid $colorFooterLighter;
+        width: 100%;
+        right: 0;
+        left: 0;
+        bottom: -3px;
+      }
+    }
+  }
+
+  @include e(link) {
+    text-decoration: none;
+    color: $colorWhite;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    letter-spacing: rem(1.3px);
+
+    &:hover {
+      transition: color 0.3s linear;
+      color: $colorDarkGold;
+    }
+  }
+
+  @include e(sub-list) {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: $colorBgDark;
+    padding: 15px;
+    min-width: 200px;
+
+    & > li {
+      margin-bottom: 10px;
+      position: relative;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &:not(:last-of-type)::after {
+        content: '';
+        display: block;
+        position: absolute;
+        border-top: 1px solid $colorFooterLighter;
+
+        width: 100%;
+
+        right: 0;
+        left: 0;
+        bottom: -8px;
+      }
+    }
+  }
+
+  @include e(sub-link) {
+    text-decoration: none;
+    color: $colorWhite;
+    text-transform: uppercase;
+    font-size: 1rem;
+    letter-spacing: rem(1.3px);
+
+    &:hover {
+      transition: color 0.15s linear;
+      color: $colorDarkGold;
+    }
+  }
+
+  @include e(arrow) {
+    display: none;
+  }
+}
+
+._pc .menu__list > li:hover .menu__sub-list {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(0, 0);
+  pointer-events: all;
+}
+
+._touch .menu__list > li {
+  display: flex;
+  align-items: center;
+}
+
+._touch .menu__link {
+  flex: 1 1 auto;
+}
+
+._touch .menu__arrow {
+  display: block;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid $colorWhite;
+  margin-left: 10px;
+  transition: transform 0.3s ease;
+}
+
+._touch .menu__list > li._active .menu__sub-list {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(0, 0);
+  pointer-events: all;
+}
+
+._touch .menu__list > li._active .menu__arrow {
+  transform: rotate(-180deg);
+}
+
+@media screen and (max-width: 767px) {
+  .menu {
+    @include e(icon) {
+      display: block;
+      position: relative;
+      z-index: 5;
+      width: 30px;
+      height: 18px;
+      cursor: pointer;
+
+      & > span,
+      &::before,
+      &::after {
+        left: 0;
+        position: absolute;
+        height: 10%;
+        width: 100%;
+        transition: all 0.3s ease;
+        background-color: $colorWhite;
+      }
+      &::before,
+      &::after {
+        content: '';
+      }
+      & > span {
+        top: 50%;
+        transform: scale(1) translate(0, -50%);
+      }
+      &::before {
+        top: 0;
+      }
+      &::after {
+        bottom: 0;
+      }
+
+      &._active {
+        &::before {
+          top: 50%;
+          transform: rotate(-45deg) translateY(-50%);
+        }
+        & span {
+          transform: scale(0) translateY(-50%);
+        }
+        &::after {
+          bottom: 50%;
+          transform: rotate(45deg) translateY(50%);
+        }
+      }
+    }
+
+    @include e(nav) {
+      position: fixed;
+      top: 90px;
+      left: -100%;
+      width: 100%;
+      // height: 50%;
+      padding: 30px 30px 30px;
+      background-color: $colorBgDark;
+      transition: left 0.3s ease;
+      overflow: auto;
+
+      &._active {
+        left: 0;
+      }
+
+      &::before {
+        content: '';
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        height: 70px;
+        // background-color: $colorDarkGold;
+        z-index: 2;
+      }
+    }
+
+    @include e(list) {
+      & > li {
+        flex-wrap: wrap;
+      }
+
+      & > li._active .menu__sub-list {
+        display: block;
+      }
+    }
+
+    @include e(sub-list) {
+      position: relative;
+      flex: 1 1 100%;
+      display: none;
+    }
+  }
+}

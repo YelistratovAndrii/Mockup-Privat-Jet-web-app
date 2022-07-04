@@ -1,0 +1,13 @@
+.container-first {
+  @include e(title) {
+    font-size: 4.3rem;
+  }
+
+  @include e(text) {
+    font-size: 1.3rem;
+  }
+
+  @include e(button) {
+    font-size: 1.1rem;
+  }
+}

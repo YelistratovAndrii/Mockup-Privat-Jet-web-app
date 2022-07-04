@@ -1,0 +1,44 @@
+.container-third {
+  min-height: 100vh;
+  background-image: url(../images/bg/bg-plane-side.jpeg);
+  background-size: cover;
+  background-position: center;
+  padding: 0 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @include e(title) {
+    font-family: Prata;
+    color: $colorLightGold;
+    font-size: 3rem;
+    letter-spacing: 1px;
+    font-weight: $fontWeight400;
+    line-height: 1.1;
+    text-align: center;
+    margin: 0 0 30px;
+  }
+
+  @include e(text) {
+    color: $colorWhite;
+    font-size: 1.15rem;
+    line-height: rem(31px);
+    text-align: center;
+    font-weight: $fontWeight300;
+    margin: 0 0 35px;
+  }
+
+  @include e(button) {
+    display: block;
+    margin: 0 auto;
+    border: 1px solid $colorLightGold;
+    background-color: $colorLightGold;
+    color: $colorWhite;
+    font-weight: $fontWeight400;
+    font-size: 1rem;
+    padding: 10px 22px;
+    width: fit-content;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,28 @@
+$baseFontSize: 16px;
+$baseFontFamily: 'Prata', serif;
+$baseFontFamily: Muli, sans-serif;
+$fontWeight300: 300;
+$fontWeight400: 400;
+$fontWeight500: 500;
+$fontWeight600: 600;
+$fontWeight700: 700;
+
+$mobilePadding: (12px / $baseFontSize) * 1rem;
+$desktopPadding: 1rem;
+
+// Paths
+
+$imagesPath: '../images/';
+$fontsPath: '../fonts/';
+
+// Colors
+$colorBlack: #000000;
+$colorWhite: #ffffff;
+$colorCCC: #ccc;
+$colorBgDark: rgb(13, 13, 14);
+$colorBgLight: #f5f3f1;
+$colorGreyText: rgb(81, 80, 80);
+$colorLightGold: rgb(168, 152, 126);
+$colorDarkGold: #a8987e;
+$colorFooterLight: rgba(255, 255, 255, 0.75);
+$colorFooterLighter: rgba(255, 255, 255, 0.2);

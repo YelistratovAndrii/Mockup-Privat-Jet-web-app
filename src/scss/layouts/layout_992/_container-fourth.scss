@@ -1,0 +1,11 @@
+.container-fourth {
+  @include e(info-card-container) {
+    padding: 90px 120px;
+    grid-gap: 60px;
+    flex: 2;
+  }
+}
+
+.swiper {
+  flex: 1.5;
+}

@@ -1,0 +1,168 @@
+.container-fleet {
+  padding: 40px 15px 100px;
+
+  @include e(title) {
+    font-family: Prata;
+    font-weight: $fontWeight400;
+    font-size: 3rem;
+    line-height: 4rem;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    margin-bottom: 50px;
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      border-bottom: 3px solid $colorLightGold;
+    }
+  }
+
+  @include e(btn-list) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(165px, 1fr));
+    grid-gap: 20px;
+    padding-bottom: 40px;
+    max-width: 1200px;
+    margin: auto;
+  }
+
+  @include e(button) {
+    cursor: pointer;
+    color: $colorLightGold;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    border-top: 2px solid $colorLightGold;
+    border-left: 2px solid $colorLightGold;
+    border-right: 2px solid rgb(85, 65, 0);
+    border-bottom: 2px solid rgb(85, 65, 0);
+    width: 100%;
+
+    &:hover {
+      color: $colorWhite;
+      background-color: $colorLightGold;
+      transform: scale(1.1);
+      box-shadow: 3px 3px 5px $colorBlack;
+      transition: transform 0.5s ease;
+    }
+  }
+
+  @include e(tile-container) {
+    width: 100%;
+    display: grid;
+    margin: auto;
+    grid-gap: 30px;
+  }
+}
+
+.plane-card {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+
+  @include e(img-container) {
+    //
+    height: 100px;
+    max-width: 200px;
+    //
+    // border: 1px solid $colorLightGold;
+    margin-bottom: 15px;
+
+    & > img {
+      width: 100%;
+      max-width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+    }
+  }
+
+  @include e(title) {
+    margin: 0;
+    color: $colorBlack;
+    font-size: 0.95rem;
+    font-weight: $fontWeight600;
+    margin-bottom: 15px;
+  }
+
+  @include e(button) {
+    display: block;
+    border: 1px solid $colorLightGold;
+    background-color: $colorLightGold;
+    color: $colorWhite;
+    font-weight: $fontWeight400;
+    font-size: 0.95rem;
+    padding: 10px 22px;
+    width: fit-content;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  &::after {
+    content: '';
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.09);
+    position: absolute;
+    left: 0;
+    bottom: -15px;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+@media screen and (min-width: 576px) {
+  .plane-card {
+    flex-direction: row;
+
+    @include e(img-container) {
+      margin-bottom: 0;
+    }
+
+    @include e(title) {
+      margin-bottom: 0;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .container-fleet {
+    @include e(title) {
+      font-size: 3.5rem;
+      line-height: 4.5rem;
+    }
+
+    @include e(tile-container) {
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 35px;
+    }
+  }
+
+  .plane-card {
+    &::after {
+      bottom: -17.5px;
+    }
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .container-fleet {
+    @include e(btn-list) {
+      grid-gap: 30px;
+    }
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .container-fleet {
+    padding: 40px 0 100px;
+  }
+}

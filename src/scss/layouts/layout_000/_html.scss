@@ -1,0 +1,50 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: $baseFontFamily;
+  font-size: 15px;
+}
+
+body {
+  width: 100%;
+
+  &._lock {
+    overflow: hidden;
+  }
+}
+
+.wrapper {
+  width: 100%;
+  overflow: hidden;
+}
+
+.container-fluid {
+  position: relative;
+
+  @include m(header) {
+    position: fixed;
+    top: 0;
+    z-index: 99;
+    background-color: $colorBgDark;
+    width: 100%;
+  }
+
+  @include m(footer) {
+    background-color: $colorBgDark;
+  }
+}
+
+.width-container {
+  max-width: 1366px;
+  margin: auto;
+}
+
+.invis {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+}

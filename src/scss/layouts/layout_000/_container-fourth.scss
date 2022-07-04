@@ -1,0 +1,81 @@
+.container-fourth {
+  padding: 40px 0 0;
+
+  @include e(title) {
+    margin: 0 0 35px;
+    padding: 0 15px;
+    text-align: center;
+    font-family: Prata;
+    font-weight: $fontWeight400;
+    font-size: 3rem;
+    line-height: rem(63px);
+  }
+
+  @include e(content-container) {
+    background-color: $colorBgLight;
+    padding: 15px;
+  }
+
+  @include e(info-card-container) {
+    background-color: $colorBgLight;
+    padding: 50px 35px;
+  }
+}
+
+.swiper {
+  min-width: 0;
+  max-width: 400px;
+}
+
+.swiper-slide {
+  & > img {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+.swiper-pagination {
+  bottom: -50px;
+}
+
+.swiper-pagination-bullet {
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  font-size: rem(14px);
+  border: 1px solid grey;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: transparent;
+}
+
+.info-card {
+  margin-bottom: 60px;
+
+  @include e(img-container) {
+    width: rem(60px);
+    height: rem(60px);
+    margin-bottom: rem(30px);
+  }
+
+  @include e(img) {
+    height: 100%;
+    max-width: 100%;
+    width: auto;
+  }
+
+  @include e(title) {
+    margin: 0 0 1rem;
+    font-size: 0.94rem;
+    font-weight: $fontWeight600;
+  }
+
+  @include e(text) {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: $fontWeight400;
+    line-height: rem(26px);
+    color: $colorGreyText;
+  }
+}

@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Jet One</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="container-fluid container-fluid_header">
+        <div class="width-container">
+          <header class="header">
+            <h1 class="header__logo">
+              <span class="invis">Jet One</span
+              ><a href="#">
+                <img src="./images/logo/logo_small.png" alt="logo"
+              /></a>
+            </h1>
+            <div class="menu">
+              <div class="menu__icon">
+                <span></span>
+              </div>
+              <nav class="menu__nav">
+                <ul class="menu__list">
+                  <li>
+                    <a class="menu__link" href="#">About Us</a>
+                    <span class="menu__arrow"></span>
+                    <ul class="menu__sub-list">
+                      <li>
+                        <a
+                          data-goto=".container-second"
+                          href="#"
+                          class="menu__sub-link"
+                          >Our Values</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          data-goto=".container-third"
+                          href="#"
+                          class="menu__sub-link"
+                          >Our History</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          data-goto=".container-fourth"
+                          href="#"
+                          class="menu__sub-link"
+                          >Our Team</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          data-goto=".container-fleet"
+                          href="#"
+                          class="menu__sub-link"
+                          >Our Fleet</a
+                        >
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a class="menu__link" href="#">Services</a>
+                    <span class="menu__arrow"></span>
+                    <ul class="menu__sub-list">
+                      <li>
+                        <a href="#" class="menu__sub-link"
+                          >Private Jet Charters</a
+                        >
+                      </li>
+                      <li>
+                        <a href="#" class="menu__sub-link"
+                          >Business Jet Charters</a
+                        >
+                      </li>
+                      <li>
+                        <a href="#" class="menu__sub-link"
+                          >Helicopter Charters</a
+                        >
+                      </li>
+                      <li>
+                        <a href="#" class="menu__sub-link">Air Taxi Services</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a class="menu__link" href="#">Empty Legs</a>
+                  </li>
+                  <li>
+                    <a class="menu__link" href="#">News</a>
+                  </li>
+                  <li>
+                    <a class="menu__link" href="#">Contact</a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </header>
+        </div>
+      </div>
+      <main>
+        <div class="container-first">
+          <h2 class="container-first__title">
+            American Private Charter with Global Coverage
+          </h2>
+          <p class="container-first__text">
+            Curly Airline proudly raises the bar and exceeds the standard for
+            luxury and corporate private jet charter services. We pride
+            ourselves on offering a professional service.
+          </p>
+          <button class="container-first__button">Request Quote</button>
+        </div>
+        <div class="form-container">
+          <form class="form" name="itinery" action="">
+            <label class="form__label form__label_sel"
+              >From
+              <div id="select-depart"></div>
+            </label>
+            <label class="form__label form__label_sel"
+              >To
+              <div id="select-arrive"></div>
+            </label>
+
+            <label class="form__label form__label_date" for="date"
+              >Date
+              <input
+                class="form__input"
+                type="datetime-local"
+                id="date"
+                name="datetime"
+              />
+            </label>
+
+            <label class="form__label form__label_num" for="num"
+              >Passengers
+              <input
+                class="form__input"
+                type="number"
+                id="num"
+                name="number"
+                min="1"
+                value="1"
+              />
+            </label>
+            <button class="form__submit" type="submit">Search</button>
+          </form>
+        </div>
+        <div class="width-container">
+          <div class="container-second">
+            <h2 class="container-second__title">
+              Private Jet Performance and Specifications
+            </h2>
+            <div class="flight-info-container flight-info-container_top">
+              <h3 class="flight-info-container__title">LUXURY AND COMFORT</h3>
+              <p class="flight-info-container__text">
+                Flying should be a pleasure and we’ll make your charter
+                experience as luxurious and comfortable as possible.
+              </p>
+            </div>
+            <div class="flight-info-container flight-info-container_top">
+              <h3 class="flight-info-container__title">
+                DISCRETION & SECURITY
+              </h3>
+              <p class="flight-info-container__text">
+                An ACS charter guarantees your privacy, and we will work closely
+                with your security provider on all aspects of your charter
+              </p>
+            </div>
+            <div class="second-container-plane">
+              <img
+                class="second-container-plane__img"
+                src="./images/plane-1-768x848.jpeg"
+                alt="plane"
+              />
+            </div>
+            <div class="flight-info-container">
+              <h3 class="flight-info-container__title">LARGE JETS</h3>
+              <p class="flight-info-container__text">
+                Comfortable for seven to eight passengers with some models
+                offering maximum seating of ten to fourteen.
+              </p>
+            </div>
+            <div class="flight-info-container">
+              <h3 class="flight-info-container__title">LUXURY AND COMFORT</h3>
+              <p class="flight-info-container__text">
+                Flying should be a pleasure and we’ll make your charter
+                experience as luxurious and comfortable as possible.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="container-third">
+          <h2 class="container-third__title">
+            We Fly You To Over 20.000 Destinations World Wide
+          </h2>
+          <p class="container-third__text">
+            Curly Airline proudly raises the bar and exceeds the standard for
+            luxury and corporate private jet charter services. We pride
+            ourselves on offering a professional and personalised service.
+          </p>
+          <button class="container-third__button">Request Quote</button>
+        </div>
+        <div class="container-fluid">
+          <div class="width-container">
+            <div class="container-fourth">
+              <h2 class="container-fourth__title">
+                Learn More About Our Premium Jet Card Program
+              </h2>
+              <div class="container-fourth__content-container">
+                <div class="swiper">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <img
+                        data-src="./images/slider/slider1.jpeg"
+                        src="./images/slider/1x1.png"
+                        alt="slide1"
+                        class="swiper-lazy"
+                      />
+                      <div class="swiper-lazy-preloader"></div>
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        data-src="./images/slider/slider2.jpeg"
+                        src="./images/slider/1x1.png"
+                        alt="slide2"
+                        class="swiper-lazy"
+                      />
+                      <div class="swiper-lazy-preloader"></div>
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        data-src="./images/slider/slider3.jpeg"
+                        src="./images/slider/1x1.png"
+                        alt="slide3"
+                        class="swiper-lazy"
+                      />
+                      <div class="swiper-lazy-preloader"></div>
+                    </div>
+                  </div>
+                  <div class="swiper-pagination"></div>
+                </div>
+                <div class="container-fourth__info-card-container">
+                  <div class="info-card">
+                    <div class="info-card__img-container">
+                      <img
+                        class="info-card__img"
+                        src="./images/svg/Asset-5.svg"
+                        alt="plane"
+                      />
+                    </div>
+                    <h3 class="info-card__title">LUXURY AND COMFORT</h3>
+                    <p class="info-card__text">
+                      Flying should be a pleasure and we’ll make your charter
+                      experience as luxurious and comfortable as possible.
+                    </p>
+                  </div>
+                  <div class="info-card">
+                    <div class="info-card__img-container">
+                      <img
+                        class="info-card__img"
+                        src="./images/svg/Asset-2.svg"
+                        alt="safety"
+                      />
+                    </div>
+                    <h3 class="info-card__title">SAFETY AND SECURITY</h3>
+                    <p class="info-card__text">
+                      Flying should be a pleasure and we’ll make your charter
+                      experience as luxurious and comfortable as possible.
+                    </p>
+                  </div>
+                  <div class="info-card">
+                    <div class="info-card__img-container">
+                      <img
+                        class="info-card__img"
+                        src="./images/svg/Asset-4.svg"
+                        alt="globe"
+                      />
+                    </div>
+                    <h3 class="info-card__title">ALL AROUND THE GLOBE</h3>
+                    <p class="info-card__text">
+                      Flying should be a pleasure and we’ll make your charter
+                      experience as luxurious and comfortable as possible.
+                    </p>
+                  </div>
+                  <div class="info-card">
+                    <div class="info-card__img-container">
+                      <img
+                        class="info-card__img"
+                        src="./images/svg/Asset-1.svg"
+                        alt="pilot"
+                      />
+                    </div>
+                    <h3 class="info-card__title">EXPERIENCED CREW</h3>
+                    <p class="info-card__text">
+                      Flying should be a pleasure and we’ll make your charter
+                      experience as luxurious and comfortable as possible.
+                    </p>
+                  </div>
+                  <div class="info-card">
+                    <div class="info-card__img-container">
+                      <img
+                        class="info-card__img"
+                        src="./images/svg/Asset-6.svg"
+                        alt="radar"
+                      />
+                    </div>
+                    <h3 class="info-card__title">MODERN AIRCRAFTS</h3>
+                    <p class="info-card__text">
+                      Flying should be a pleasure and we’ll make your charter
+                      experience as luxurious and comfortable as possible.
+                    </p>
+                  </div>
+                  <div class="info-card">
+                    <div class="info-card__img-container">
+                      <img
+                        class="info-card__img"
+                        src="./images/svg/Asset-3.svg"
+                        alt="tower"
+                      />
+                    </div>
+                    <h3 class="info-card__title">FAST AND AFFORDABLE</h3>
+                    <p class="info-card__text">
+                      Flying should be a pleasure and we’ll make your charter
+                      experience as luxurious and comfortable as possible.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="width-container">
+          <div class="container-fleet">
+            <h2 class="container-fleet__title">Our Fleet</h2>
+            <ul class="container-fleet__btn-list">
+              <li>
+                <button class="container-fleet__button" data-fleet="all">
+                  All
+                </button>
+              </li>
+              <li>
+                <button class="container-fleet__button" data-fleet="private">
+                  Private Jets
+                </button>
+              </li>
+              <li>
+                <button class="container-fleet__button" data-fleet="business">
+                  Business Jets
+                </button>
+              </li>
+              <li>
+                <button class="container-fleet__button" data-fleet="taxi">
+                  Air Taxi
+                </button>
+              </li>
+              <li>
+                <button class="container-fleet__button" data-fleet="cargo">
+                  Cargo Jets
+                </button>
+              </li>
+            </ul>
+            <div class="container-fleet__tile-container"></div>
+          </div>
+        </div>
+      </main>
+      <div class="container-fluid container-fluid_footer">
+        <div class="width-container">
+          <footer class="footer">
+            <strong class="footer__logo">
+              <span class="invis">Jet One</span>
+              <img src="./images/logo/logo.png" alt="logo" />
+            </strong>
+            <nav class="footer-nav">
+              <ul class="footer-nav__ul">
+                <li>
+                  <a class="footer-nav__link" href="#">Services</a>
+                </li>
+                <li>
+                  <a class="footer-nav__link" href="#">About Us</a>
+                </li>
+                <li>
+                  <a class="footer-nav__link" href="#">Empty Legs</a>
+                </li>
+                <li>
+                  <a class="footer-nav__link" href="#">News</a>
+                </li>
+                <li>
+                  <a class="footer-nav__link" href="#">Contact</a>
+                </li>
+              </ul>
+              <a class="footer-nav__top-link" href="#"
+                ><span class="footer-nav__arrow"></span> Top</a
+              >
+            </nav>
+            <div class="footer-bottom">
+              <div class="contact-area">
+                <h3 class="contact-area__title">Europe</h3>
+                <span class="contact-area__adress">
+                  45 Gloucester Road London DT1M 3BF
+                  <br />
+                  +44 (0) 20 3671 5709
+                </span>
+              </div>
+              <div class="contact-area">
+                <h3 class="contact-area__title">NORTH AMERICA</h3>
+                <span class="contact-area__adress">
+                  7845 Norton Blvd Ste 138 Vancouver CA
+                  <br />
+                  + 1 674 211 6379
+                </span>
+              </div>
+              <div class="contact-area">
+                <h3 class="contact-area__title">ASIA & PACIFIC</h3>
+                <span class="contact-area__adress">
+                  2473 Red Road Ste 98 Singapore SG
+                  <br />
+                  + 1 623 211 6319
+                </span>
+              </div>
+              <div class="contact-area">
+                <h3 class="contact-area__title">SOUTH AMERICa</h3>
+                <span class="contact-area__adress">
+                  3452 Diego Blvd Ste 18 Buenos Aires AG
+                  <br />
+                  + 1 614 221 3479
+                </span>
+              </div>
+              <div class="why-us">
+                <h3 class="why-us__title">WHY FLY PRIVATE JET?</h3>
+                <p class="why-us__text">
+                  Morbi odio eros, volutpat ut pharetra vitae, lobortis sed
+                  nibh. Donec sed odio operae, eu vulputate felis rhoncus. Quo
+                  usque tandem abutere, Catilina, patientia nostra? Etiam
+                  habebis sem dicantur. Morbi odio eros, volutpat ut pharetra
+                  vitae, lobortis sed nibh.
+                </p>
+              </div>
+              <ul class="regulatory-links">
+                <li>
+                  <a href="#" class="regulatory-links__link"
+                    >Safety Regulations</a
+                  >
+                </li>
+                <li>
+                  <a href="#" class="regulatory-links__link"
+                    >Terms & Conditions</a
+                  >
+                </li>
+                <li>
+                  <a href="#" class="regulatory-links__link">Privacy Policy</a>
+                </li>
+                <li>
+                  <a href="#" class="regulatory-links__link">Terms of Use</a>
+                </li>
+              </ul>
+              <div class="social-links">
+                <a href="#" class="social-links__link">
+                  <svg class="social-links__svg">
+                    <use xlink:href="images/svg/socials-sprite.svg#facebook" />
+                  </svg>
+                </a>
+                <a href="#" class="social-links__link">
+                  <svg class="social-links__svg">
+                    <use xlink:href="./images/svg/socials-sprite.svg#twitter" />
+                  </svg>
+                </a>
+                <a href="#" class="social-links__link"
+                  ><svg class="social-links__svg">
+                    <use
+                      xlink:href="./images/svg/socials-sprite.svg#instagram"
+                    />
+                  </svg>
+                </a>
+                <a href="#" class="social-links__link">
+                  <svg class="social-links__svg">
+                    <use xlink:href="./images/svg/socials-sprite.svg#youtube" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </div>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="./js/burger.js"></script>
+    <script src="./js/select.js"></script>
+    <script src="./js/swiper.js"></script>
+    <script src="./js/fleet.js"></script>
+  </body>
+</html>

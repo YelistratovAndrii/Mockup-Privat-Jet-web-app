@@ -1,0 +1,30 @@
+.menu {
+  @include e(list) {
+    display: flex;
+    align-items: center;
+
+    & > li {
+      padding: 10px 0;
+
+      &:not(:last-of-type)::after {
+        border: none;
+      }
+    }
+  }
+
+  @include e(link) {
+    font-size: 0.7rem;
+  }
+
+  @include e(sub-link) {
+    font-size: 0.7rem;
+  }
+
+  @include e(sub-list) {
+    transform: translate(0px, 10%);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 0.3s ease 0s;
+  }
+}

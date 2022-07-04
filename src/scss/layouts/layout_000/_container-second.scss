@@ -1,0 +1,54 @@
+.container-second {
+  display: grid;
+  grid-row-gap: 60px;
+  padding: 40px 15px 50px;
+
+  @include e(title) {
+    margin: 0 0 10px;
+    position: relative;
+    text-align: center;
+    font-family: Prata;
+    font-weight: $fontWeight400;
+    font-size: 3rem;
+    line-height: 4rem;
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 60px;
+      border-bottom: 3px solid $colorLightGold;
+      bottom: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}
+
+.flight-info-container {
+  @include e(title) {
+    text-transform: uppercase;
+    font-size: 0.95rem;
+    font-weight: $fontWeight700;
+    margin: 0 0 15px;
+    color: $colorBlack;
+  }
+
+  @include e(text) {
+    font-size: 1rem;
+    line-height: 1.73rem;
+    font-weight: $fontWeight400;
+    margin: 0 0 0;
+    color: $colorGreyText;
+  }
+}
+
+.second-container-plane {
+  width: 100%;
+
+  @include e(img) {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+}

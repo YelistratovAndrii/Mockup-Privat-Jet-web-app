@@ -1,0 +1,216 @@
+* {
+  box-sizing: border-box;
+}
+
+.form-container {
+  border: 1px solid red;
+  // display: flex;
+  // justify-content: center;
+}
+
+$height: 60px;
+
+.form {
+  padding: 86px 30px;
+  width: 100%;
+  display: grid;
+  grid-column-gap: 20px;
+  grid-template-columns: (1fr auto);
+
+  @include e(label) {
+    display: block;
+    text-transform: uppercase;
+    color: $colorGreyText;
+    font-size: 0.85rem;
+
+    & > input {
+      box-sizing: border-box;
+    }
+
+    @include m(sel) {
+      grid-column: 1 / -1;
+    }
+
+    @include m(date) {
+      grid-column: 1 / -1;
+
+      & > input {
+        width: 100%;
+      }
+    }
+
+    @include m(num) {
+      grid-column: 1 / -1;
+
+      & > input {
+        width: 100%;
+      }
+    }
+  }
+
+  @include e(input) {
+    padding: 0 1rem;
+    display: block;
+    margin: 8px 0 20px;
+    background: $colorWhite;
+    border: 1px solid $colorCCC;
+    height: $height;
+  }
+
+  @include e(submit) {
+    margin-top: 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    color: $colorWhite;
+    background: $colorLightGold;
+    border: 1px solid $colorLightGold;
+    height: $height;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 576px) {
+  .form {
+    @include e(label) {
+      @include m(date) {
+        grid-column: 1 / 2;
+      }
+
+      @include m(num) {
+        grid-column: 2 / -1;
+      }
+    }
+
+    @include e(submit) {
+      grid-column: 2 / -1;
+    }
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .form {
+    grid-template-columns: 1fr 1fr auto auto;
+
+    @include e(label) {
+      @include m(sel) {
+        grid-column: initial;
+      }
+
+      @include m(date) {
+        grid-column: 3 / 4;
+      }
+
+      @include m(num) {
+        grid-column: 4 / 5;
+      }
+    }
+
+    @include e(submit) {
+      grid-column: 4 / 5;
+    }
+  }
+}
+
+.select {
+  width: 100%;
+  position: relative;
+  z-index: 98;
+
+  &.open {
+    .select__backdrop {
+      display: block;
+    }
+
+    .select__dropdown {
+      display: block;
+    }
+
+    .select__search {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .select__input {
+      border-bottom: none;
+    }
+  }
+
+  @include e(backdrop) {
+    display: none;
+    z-index: -1;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: transparent;
+  }
+
+  @include e(input) {
+    margin: 8px 0 15px;
+    border: 1px solid #ccc;
+    height: $height;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    cursor: pointer;
+    z-index: -1;
+  }
+
+  @include e(dropdown) {
+    display: none;
+    position: absolute;
+    border: 1px solid #ccc;
+    top: $height;
+    left: 0;
+    right: 0;
+    max-height: 200px;
+    overflow-y: auto;
+    box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.3);
+    z-index: 99;
+  }
+
+  @include e(search) {
+    box-sizing: border-box;
+    top: 0;
+    position: absolute;
+    z-index: 99;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid $colorBlack;
+    background-color: $colorBgLight;
+    font-size: 1rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 1s;
+  }
+
+  @include e(list) {
+    margin-top: 50px;
+    z-index: 99;
+  }
+
+  @include e(item) {
+    background-color: $colorWhite;
+    padding: 1rem;
+    border-bottom: 1px solid $colorCCC;
+    z-index: 99;
+
+    &.selected {
+      background-color: $colorBgLight;
+    }
+
+    &:hover {
+      background-color: #eee;
+      cursor: pointer;
+      transition: background-color 0.2s ease-in;
+    }
+  }
+}
+
+@media screen and(min-width:1200px) {
+  .form {
+    padding: 95px 86px;
+  }
+}
