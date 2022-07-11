@@ -1,5 +1,5 @@
 const getTemplate = (data = [], placeholder) => {
-  const text = placeholder ?? 'Departure airport...';
+  const text = placeholder ?? 'Select airport...';
 
   const items = data.map((item) => {
     return `
@@ -62,6 +62,8 @@ class Select {
   clickHandler(event) {
     const { type } = event.target.dataset;
 
+    console.log(type);
+
     if (type === 'input' || type === 'value' || type === 'arrow') {
       this.toggle();
     }
@@ -96,6 +98,10 @@ class Select {
     this.$el.querySelectorAll(`[data-type="item"]`).forEach((el) => {
       el.classList.remove('selected');
     });
+    this.$el.querySelector(`[data-type="input"]`).classList.remove('danger');
+    this.$el
+      .querySelector(`[data-type="input"]`)
+      .classList.remove('danger_select');
     this.$el.querySelector(`[data-id="${id}"]`).classList.add('selected');
     this.options.onselect ? this.options.onselect(this.current) : null;
     this.close();
@@ -206,3 +212,65 @@ const selectArr = new Select('#select-arrive', {
 
 window.s1 = selectDep;
 window.s2 = selectArr;
+
+//
+
+const form = document.querySelector('.form');
+const submit = form.querySelector('.form__submit');
+
+function handleSubmit(e) {
+  const { target } = e;
+
+  [...target.parentNode.children].forEach((el) => {
+    const input = el.children[0];
+
+    if (!input) {
+      return;
+    }
+
+    if (input.classList.contains('select')) {
+      selInput = input.children[1];
+
+      if (
+        selInput.textContent.trim() === selectDep.options.placeholder ||
+        selInput.textContent.trim() === selectArr.options.placeholder
+      ) {
+        selInput.classList.add('danger');
+        selInput.classList.add('danger_select');
+        e.preventDefault();
+      }
+      return;
+    }
+
+    if (!input.value) {
+      e.preventDefault();
+      input.classList.add('danger');
+      input.parentNode.classList.add('danger_label');
+
+      input.addEventListener('click', () => {
+        input.classList.remove('danger');
+        input.parentNode.classList.remove('danger_label');
+      });
+    }
+  });
+}
+
+submit.addEventListener('click', handleSubmit);
+
+function toggleForm(e) {
+  const { target } = e;
+  const aside = form.querySelector('.form__aside');
+  const cross = form.querySelector('.form__close');
+
+  if (target !== aside && target !== cross) {
+    // console.log(target);
+    return;
+  }
+
+  const container = form.parentNode;
+
+  container.classList.toggle('_open');
+  document.body.classList.toggle('_lock');
+}
+
+document.addEventListener('click', toggleForm);

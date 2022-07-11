@@ -110,7 +110,7 @@
         </div>
       </div>
       <main>
-        <div class="container-first">
+        <div class="container-first parallax-container">
           <h2 class="container-first__title">
             American Private Charter with Global Coverage
           </h2>
@@ -120,6 +120,53 @@
             ourselves on offering a professional service.
           </p>
           <button class="container-first__button">Request Quote</button>
+        </div>
+        <div class="container-fluid">
+          <div class="width-container">
+            <div class="container-second">
+              <h2 class="container-second__title">
+                Private Jet Performance and Specifications
+              </h2>
+              <div class="flight-info-container flight-info-container_top">
+                <h3 class="flight-info-container__title">LUXURY AND COMFORT</h3>
+                <p class="flight-info-container__text">
+                  Flying should be a pleasure and we’ll make your charter
+                  experience as luxurious and comfortable as possible.
+                </p>
+              </div>
+              <div class="flight-info-container flight-info-container_top">
+                <h3 class="flight-info-container__title">
+                  DISCRETION & SECURITY
+                </h3>
+                <p class="flight-info-container__text">
+                  An ACS charter guarantees your privacy, and we will work
+                  closely with your security provider on all aspects of your
+                  charter
+                </p>
+              </div>
+              <div class="second-container-plane">
+                <img
+                  class="second-container-plane__img"
+                  src="./images/plane-1-768x848.jpeg"
+                  alt="plane"
+                />
+              </div>
+              <div class="flight-info-container">
+                <h3 class="flight-info-container__title">LARGE JETS</h3>
+                <p class="flight-info-container__text">
+                  Comfortable for seven to eight passengers with some models
+                  offering maximum seating of ten to fourteen.
+                </p>
+              </div>
+              <div class="flight-info-container">
+                <h3 class="flight-info-container__title">LUXURY AND COMFORT</h3>
+                <p class="flight-info-container__text">
+                  Flying should be a pleasure and we’ll make your charter
+                  experience as luxurious and comfortable as possible.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="form-container">
           <form class="form" name="itinery" action="">
@@ -131,7 +178,6 @@
               >To
               <div id="select-arrive"></div>
             </label>
-
             <label class="form__label form__label_date" for="date"
               >Date
               <input
@@ -141,7 +187,6 @@
                 name="datetime"
               />
             </label>
-
             <label class="form__label form__label_num" for="num"
               >Passengers
               <input
@@ -154,53 +199,14 @@
               />
             </label>
             <button class="form__submit" type="submit">Search</button>
+            <i class="form__close fa-solid fa-xmark"></i>
+            <div class="form__aside">
+              <i class="fa-solid fa-arrow-right"></i>
+              <span>Book now</span>
+            </div>
           </form>
         </div>
-        <div class="width-container">
-          <div class="container-second">
-            <h2 class="container-second__title">
-              Private Jet Performance and Specifications
-            </h2>
-            <div class="flight-info-container flight-info-container_top">
-              <h3 class="flight-info-container__title">LUXURY AND COMFORT</h3>
-              <p class="flight-info-container__text">
-                Flying should be a pleasure and we’ll make your charter
-                experience as luxurious and comfortable as possible.
-              </p>
-            </div>
-            <div class="flight-info-container flight-info-container_top">
-              <h3 class="flight-info-container__title">
-                DISCRETION & SECURITY
-              </h3>
-              <p class="flight-info-container__text">
-                An ACS charter guarantees your privacy, and we will work closely
-                with your security provider on all aspects of your charter
-              </p>
-            </div>
-            <div class="second-container-plane">
-              <img
-                class="second-container-plane__img"
-                src="./images/plane-1-768x848.jpeg"
-                alt="plane"
-              />
-            </div>
-            <div class="flight-info-container">
-              <h3 class="flight-info-container__title">LARGE JETS</h3>
-              <p class="flight-info-container__text">
-                Comfortable for seven to eight passengers with some models
-                offering maximum seating of ten to fourteen.
-              </p>
-            </div>
-            <div class="flight-info-container">
-              <h3 class="flight-info-container__title">LUXURY AND COMFORT</h3>
-              <p class="flight-info-container__text">
-                Flying should be a pleasure and we’ll make your charter
-                experience as luxurious and comfortable as possible.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="container-third">
+        <div class="container-third parallax-container">
           <h2 class="container-third__title">
             We Fly You To Over 20.000 Destinations World Wide
           </h2>
@@ -340,37 +346,39 @@
             </div>
           </div>
         </div>
-        <div class="width-container">
-          <div class="container-fleet">
-            <h2 class="container-fleet__title">Our Fleet</h2>
-            <ul class="container-fleet__btn-list">
-              <li>
-                <button class="container-fleet__button" data-fleet="all">
-                  All
-                </button>
-              </li>
-              <li>
-                <button class="container-fleet__button" data-fleet="private">
-                  Private Jets
-                </button>
-              </li>
-              <li>
-                <button class="container-fleet__button" data-fleet="business">
-                  Business Jets
-                </button>
-              </li>
-              <li>
-                <button class="container-fleet__button" data-fleet="taxi">
-                  Air Taxi
-                </button>
-              </li>
-              <li>
-                <button class="container-fleet__button" data-fleet="cargo">
-                  Cargo Jets
-                </button>
-              </li>
-            </ul>
-            <div class="container-fleet__tile-container"></div>
+        <div class="container-fluid">
+          <div class="width-container">
+            <div class="container-fleet">
+              <h2 class="container-fleet__title">Our Fleet</h2>
+              <ul class="container-fleet__btn-list">
+                <li>
+                  <button class="container-fleet__button" data-fleet="all">
+                    All
+                  </button>
+                </li>
+                <li>
+                  <button class="container-fleet__button" data-fleet="private">
+                    Private Jets
+                  </button>
+                </li>
+                <li>
+                  <button class="container-fleet__button" data-fleet="business">
+                    Business Jets
+                  </button>
+                </li>
+                <li>
+                  <button class="container-fleet__button" data-fleet="taxi">
+                    Air Taxi
+                  </button>
+                </li>
+                <li>
+                  <button class="container-fleet__button" data-fleet="cargo">
+                    Cargo Jets
+                  </button>
+                </li>
+              </ul>
+              <div class="container-fleet__tile-container"></div>
+            </div>
           </div>
         </div>
       </main>
@@ -496,6 +504,7 @@
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
     <script src="./js/script.js"></script>
     <script src="./js/burger.js"></script>
+    <script src="./js/parallax.js"></script>
     <script src="./js/select.js"></script>
     <script src="./js/swiper.js"></script>
     <script src="./js/fleet.js"></script>

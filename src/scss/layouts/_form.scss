@@ -1,0 +1,298 @@
+.form-container {
+  width: 100%;
+  background-color: $colorWhite;
+  position: fixed;
+  z-index: 50;
+  left: -1px;
+  top: 50%;
+  transform: translate(-100%, -50%);
+  transition: all 0.6s ease-in-out;
+}
+
+.form {
+  background-color: $colorWhite;
+
+  @include e(aside) {
+    display: none;
+  }
+
+  @include e(close) {
+    position: absolute;
+    cursor: pointer;
+    color: $colorLightGold;
+    font-size: 1.8rem;
+    right: 1rem;
+    top: 1rem;
+  }
+}
+
+._open {
+  box-shadow: 0 0 20px $colorBlack;
+  transform: translate(0, -50%);
+}
+
+$height: 60px;
+
+.select {
+  box-sizing: border-box;
+  width: 100%;
+  position: relative;
+
+  &.open {
+    .select__backdrop {
+      display: block;
+    }
+
+    .select__dropdown {
+      display: block;
+    }
+
+    .select__search {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .select__input {
+      border-bottom: none;
+    }
+  }
+
+  @include e(backdrop) {
+    display: none;
+    z-index: 2;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: transparent;
+  }
+
+  @include e(input) {
+    margin: 8px 0 30px;
+    border: 1px solid #ccc;
+    height: $height;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    cursor: pointer;
+    z-index: -1;
+  }
+
+  @include e(dropdown) {
+    display: none;
+    position: absolute;
+    border: 1px solid #ccc;
+    top: $height;
+    left: 0;
+    right: 0;
+    max-height: 200px;
+    overflow-y: auto;
+    box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.3);
+    z-index: 99;
+  }
+
+  @include e(search) {
+    box-sizing: border-box;
+    top: 0;
+    position: absolute;
+    z-index: 99;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid $colorBlack;
+    background-color: $colorBgLight;
+    font-size: 1rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 1s;
+  }
+
+  @include e(list) {
+    margin-top: 50px;
+    z-index: 99;
+  }
+
+  @include e(item) {
+    background-color: $colorWhite;
+    padding: 1rem;
+    border-bottom: 1px solid $colorCCC;
+    z-index: 99;
+
+    &.selected {
+      background-color: $colorBgLight;
+    }
+
+    &:hover {
+      background-color: #eee;
+      cursor: pointer;
+      transition: background-color 0.2s ease-in;
+    }
+  }
+}
+
+.form {
+  padding: 86px 30px;
+  width: 100%;
+  display: grid;
+  grid-column-gap: 20px;
+  grid-template-columns: (1fr auto);
+
+  @include e(label) {
+    display: block;
+    text-transform: uppercase;
+    color: $colorGreyText;
+    font-size: 0.85rem;
+
+    & > input {
+      box-sizing: border-box;
+    }
+
+    @include m(sel) {
+      grid-column: 1 / -1;
+    }
+
+    @include m(date) {
+      grid-column: 1 / -1;
+
+      & > input {
+        width: 100%;
+      }
+    }
+
+    @include m(num) {
+      grid-column: 1 / -1;
+
+      & > input {
+        width: 100%;
+      }
+    }
+  }
+
+  @include e(input) {
+    padding: 0 1rem;
+    display: block;
+    margin: 8px 0 30px;
+    background: $colorWhite;
+    border: 1px solid $colorCCC;
+    height: $height;
+  }
+
+  @include e(submit) {
+    margin-top: 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    color: $colorWhite;
+    background: $colorLightGold;
+    border: 1px solid $colorLightGold;
+    height: $height;
+    width: 100%;
+  }
+}
+
+.danger {
+  border: 1px solid $colorRed;
+  background-color: rgba($colorRed, 0.13);
+
+  @include m(select) {
+    &::after {
+      content: 'Please select an airport!';
+      display: block;
+      position: absolute;
+      left: 0;
+      bottom: -20px;
+      color: red;
+      text-transform: capitalize;
+    }
+  }
+
+  @include m(label) {
+    position: relative;
+
+    &::after {
+      content: 'Please enter a valid value!';
+      display: block;
+      position: absolute;
+      left: 0;
+      bottom: 12px;
+      color: red;
+      text-transform: capitalize;
+    }
+  }
+}
+
+@media screen and (min-width: 576px) {
+  .form {
+    @include e(label) {
+      @include m(date) {
+        grid-column: 1 / 2;
+      }
+
+      @include m(num) {
+        grid-column: 2 / -1;
+      }
+    }
+
+    @include e(submit) {
+      grid-column: 2 / -1;
+    }
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .form__aside {
+    position: absolute;
+    z-index: 50;
+    display: block;
+    height: 100%;
+    width: 35px;
+    top: 0;
+    right: 0;
+    transform: translateX(100%);
+    background-color: $colorLightGold;
+    cursor: pointer;
+    color: $colorWhite;
+    padding: 15px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    & > span {
+      white-space: nowrap;
+      letter-spacing: 1px;
+      word-spacing: 7px;
+      transform: rotate(-90deg) translateX(50%);
+      text-transform: uppercase;
+      font-weight: $fontWeight700;
+    }
+  }
+
+  .form {
+    grid-template-columns: 1fr 1fr auto auto;
+
+    @include e(label) {
+      @include m(sel) {
+        grid-column: initial;
+      }
+
+      @include m(date) {
+        grid-column: 3 / 4;
+      }
+
+      @include m(num) {
+        grid-column: 4 / 5;
+      }
+    }
+
+    @include e(submit) {
+      grid-column: 4 / 5;
+    }
+  }
+}
+
+@media screen and(min-width:1200px) {
+  .form {
+    padding: 95px 86px;
+  }
+}
