@@ -1,0 +1,193 @@
+* {
+  box-sizing: border-box;
+}
+
+.reg-wrapper {
+  //
+  // max-width: 1200px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  //
+  padding: 0 20px;
+  margin: 0 auto;
+  width: 100%;
+  background-color: $colorWhite;
+  font-family: Prata;
+}
+
+.reg-header {
+  padding: 20px 0;
+  background-color: $colorWhite;
+
+  @include e(logo) {
+    width: 150px;
+
+    & > a {
+      & > img {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+  }
+}
+
+.reg-main {
+  padding: 20px 0;
+  flex: 2;
+
+  @include e(title) {
+    margin: 0 0 32px;
+    font-weight: $fontWeight400;
+    font-size: rem(35px);
+  }
+}
+
+.reg-form {
+  @include e(submit) {
+    cursor: pointer;
+    text-transform: capitalize;
+    color: $colorWhite;
+    background: $colorLightGold;
+    padding: 10px 24px;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    max-width: 100px;
+
+    &:hover {
+      transform: scale(1.1);
+      box-shadow: 3px 3px 5px $colorBlack;
+    }
+  }
+}
+
+.input-box {
+  position: relative;
+  margin-bottom: 40px;
+  color: $colorGreyText;
+  text-transform: capitalize;
+  font-weight: $fontWeight400;
+
+  @include e(label) {
+    display: block;
+    font-size: 1.15rem;
+  }
+
+  @include e(input) {
+    box-sizing: border-box;
+    display: block;
+    margin-top: 15px;
+    border: 1px solid $colorCCC;
+    padding: 7px 12px;
+    font-size: 1rem;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  @include e(error) {
+    font-family: $baseFontFamily;
+    font-weight: $fontWeight300;
+    font-size: 0.9rem;
+    bottom: -22px;
+    position: absolute;
+    color: $colorRed;
+    display: none;
+    text-transform: lowercase;
+
+    &:first-letter {
+      text-transform: uppercase;
+    }
+  }
+
+  textarea {
+    resize: none;
+    outline: none;
+  }
+}
+
+.visible {
+  display: block;
+}
+
+.reg-footer {
+  padding: 40px 0 40px;
+  background-color: $colorWhite;
+
+  @include e(span) {
+    font-family: $baseFontFamily;
+    font-weight: $fontWeight300;
+    font-size: 0.9rem;
+
+    & > a {
+      text-decoration: none;
+      color: $colorLightGold;
+    }
+  }
+}
+
+@media screen and (min-width: 576px) {
+  .reg-header {
+    padding: 80px 0 60px;
+  }
+
+  .reg-form {
+    display: grid;
+    grid-column-gap: 20px;
+    grid-template-areas:
+      'first-name last-name'
+      'email tel'
+      'adress adress'
+      'info info';
+  }
+
+  .input-box {
+    @include m(first-name) {
+      grid-area: first-name;
+    }
+    @include m(last-name) {
+      grid-area: last-name;
+    }
+    @include m(email) {
+      grid-area: email;
+    }
+    @include m(tel) {
+      grid-area: tel;
+    }
+    @include m(adress) {
+      grid-area: adress;
+    }
+    @include m(aditional) {
+      grid-area: info;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .reg-wrapper {
+    padding: 0 50px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .reg-body {
+    display: flex;
+    overflow: hidden;
+  }
+
+  .reg-bg {
+    height: 100%;
+    flex-basis: 50%;
+    background: url(../images/bg/BusinessPeopleWorkingInPrivateJet_full-1.jpeg)
+      no-repeat;
+    background-size: cover;
+  }
+
+  .reg-wrapper {
+    flex-basis: 50%;
+    overflow-y: auto;
+  }
+
+  .reg-header {
+    padding: 80px 0 60px;
+  }
+}

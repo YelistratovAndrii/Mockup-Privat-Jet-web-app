@@ -46,7 +46,7 @@
                       </li>
                       <li>
                         <a
-                          data-goto=".container-third"
+                          data-goto=".parallax-container_third"
                           href="#"
                           class="menu__sub-link"
                           >Our History</a
@@ -110,16 +110,54 @@
         </div>
       </div>
       <main>
-        <div class="container-first parallax-container">
-          <h2 class="container-first__title">
+        <div class="aside-form-container">
+          <form class="form" name="itinery" action="">
+            <label class="form__label form__label_sel"
+              >From
+              <div id="select-depart"></div>
+            </label>
+            <label class="form__label form__label_sel"
+              >To
+              <div id="select-arrive"></div>
+            </label>
+            <label class="form__label form__label_date" for="date"
+              >Date
+              <input
+                class="form__input"
+                type="datetime-local"
+                id="date"
+                name="datetime"
+              />
+            </label>
+            <label class="form__label form__label_num" for="num"
+              >Passengers
+              <input
+                class="form__input"
+                type="number"
+                id="num"
+                name="number"
+                min="1"
+                value="1"
+              />
+            </label>
+            <button class="form__submit" type="submit">Search</button>
+            <i class="form__close fa-solid fa-xmark"></i>
+            <div class="form__aside">
+              <i class="fa-solid fa-arrow-right"></i>
+              <span>Book now</span>
+            </div>
+          </form>
+        </div>
+        <div class="parallax-container parallax-container_first">
+          <h2 class="parallax-container__title parallax-container__title_first">
             American Private Charter with Global Coverage
           </h2>
-          <p class="container-first__text">
+          <p class="parallax-container__text parallax-container__text_first">
             Curly Airline proudly raises the bar and exceeds the standard for
             luxury and corporate private jet charter services. We pride
             ourselves on offering a professional service.
           </p>
-          <button class="container-first__button">Request Quote</button>
+          <button class="parallax-container__button">Request Quote</button>
         </div>
         <div class="container-fluid">
           <div class="width-container">
@@ -168,54 +206,16 @@
             </div>
           </div>
         </div>
-        <div class="form-container">
-          <form class="form" name="itinery" action="">
-            <label class="form__label form__label_sel"
-              >From
-              <div id="select-depart"></div>
-            </label>
-            <label class="form__label form__label_sel"
-              >To
-              <div id="select-arrive"></div>
-            </label>
-            <label class="form__label form__label_date" for="date"
-              >Date
-              <input
-                class="form__input"
-                type="datetime-local"
-                id="date"
-                name="datetime"
-              />
-            </label>
-            <label class="form__label form__label_num" for="num"
-              >Passengers
-              <input
-                class="form__input"
-                type="number"
-                id="num"
-                name="number"
-                min="1"
-                value="1"
-              />
-            </label>
-            <button class="form__submit" type="submit">Search</button>
-            <i class="form__close fa-solid fa-xmark"></i>
-            <div class="form__aside">
-              <i class="fa-solid fa-arrow-right"></i>
-              <span>Book now</span>
-            </div>
-          </form>
-        </div>
-        <div class="container-third parallax-container">
-          <h2 class="container-third__title">
+        <div class="parallax-container parallax-container_third">
+          <h2 class="parallax-container__title parallax-container__title_third">
             We Fly You To Over 20.000 Destinations World Wide
           </h2>
-          <p class="container-third__text">
+          <p class="parallax-container__text parallax-container__text_third">
             Curly Airline proudly raises the bar and exceeds the standard for
             luxury and corporate private jet charter services. We pride
             ourselves on offering a professional and personalised service.
           </p>
-          <button class="container-third__button">Request Quote</button>
+          <button class="parallax-container__button">Request Quote</button>
         </div>
         <div class="container-fluid">
           <div class="width-container">
@@ -380,6 +380,7 @@
               <div class="container-fleet__tile-container"></div>
             </div>
           </div>
+          <div class="plane-side"></div>
         </div>
       </main>
       <div class="container-fluid container-fluid_footer">
@@ -505,7 +506,8 @@
     <script src="./js/script.js"></script>
     <script src="./js/burger.js"></script>
     <script src="./js/parallax.js"></script>
-    <script src="./js/select.js"></script>
+    <script src="./js/airports.js"></script>
+    <script src="./js/aside-form.js"></script>
     <script src="./js/swiper.js"></script>
     <script src="./js/fleet.js"></script>
   </body>

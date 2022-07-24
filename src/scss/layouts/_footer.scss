@@ -195,6 +195,10 @@
   }
 }
 @media screen and (min-width: 768px) {
+  .footer {
+    padding: 0 30px;
+  }
+
   .footer-bottom {
     grid-template-columns: (repeat(4, 1fr));
     padding: 56px 0 16px;
@@ -206,6 +210,10 @@
   }
 }
 @media screen and (min-width: 992px) {
+  .footer {
+    padding: 0 50px;
+  }
+
   .footer-nav {
     @include e(link) {
       &:hover {
@@ -283,5 +291,11 @@
       width: 23px;
       height: 23px;
     }
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .footer {
+    padding: 0 0;
   }
 }

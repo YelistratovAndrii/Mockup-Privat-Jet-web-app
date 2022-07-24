@@ -1,7 +1,6 @@
 .container-second {
-  // z-index: 2;
+  min-height: 100vh;
   // position: relative;
-
   display: grid;
   grid-row-gap: 60px;
   padding: 40px 15px 50px;
@@ -65,7 +64,13 @@
 }
 
 .second-container-plane {
+  position: relative;
+  bottom: -100%;
   width: 100%;
+  max-width: 500px;
+  margin: auto;
+  animation: moveup 1s ease;
+  animation-fill-mode: forwards;
 
   @include e(img) {
     width: 100%;
@@ -74,12 +79,21 @@
   }
 }
 
+@keyframes moveup {
+  0% {
+    bottom: -100%;
+  }
+  100% {
+    bottom: 0;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .container-second {
     grid-template-columns: 1fr 2fr 1fr;
     grid-column-gap: 32px;
     grid-row-gap: 68px;
-    padding: 40px 15px 50px;
+    padding: 40px 30px 50px;
 
     @include e(title) {
       font-size: 3.5rem;
@@ -101,6 +115,12 @@
     grid-row: 2/4;
     max-width: 650px;
     justify-self: center;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .container-second {
+    padding: 40px 50px 50px;
   }
 }
 

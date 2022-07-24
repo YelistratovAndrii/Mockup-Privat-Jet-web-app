@@ -1,12 +1,13 @@
-.form-container {
+.aside-form-container {
   width: 100%;
   background-color: $colorWhite;
   position: fixed;
   z-index: 50;
   left: -1px;
   top: 50%;
-  transform: translate(-100%, -50%);
-  transition: all 0.6s ease-in-out;
+  transform: translate(0, -50%);
+  left: -100%;
+  transition: left 0.6s ease-in-out;
 }
 
 .form {
@@ -28,7 +29,7 @@
 
 ._open {
   box-shadow: 0 0 20px $colorBlack;
-  transform: translate(0, -50%);
+  left: 0;
 }
 
 $height: 60px;
@@ -187,12 +188,18 @@ $height: 60px;
     border: 1px solid $colorLightGold;
     height: $height;
     width: 100%;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: scale(1.1);
+      box-shadow: 3px 3px 5px $colorBlack;
+    }
   }
 }
 
 .danger {
-  border: 1px solid $colorRed;
-  background-color: rgba($colorRed, 0.13);
+  border: 1px solid $colorRed !important;
+  background-color: rgba($colorRed, 0.13) !important;
 
   @include m(select) {
     &::after {
@@ -257,6 +264,16 @@ $height: 60px;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: $colorBlack;
+    }
+
+    &:hover {
+      background-color: $colorDarkGold;
+      box-shadow: 0 0 5px $colorBlack;
+    }
 
     & > span {
       white-space: nowrap;

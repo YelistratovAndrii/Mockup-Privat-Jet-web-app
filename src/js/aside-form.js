@@ -1,11 +1,10 @@
 const getTemplate = (data = [], placeholder) => {
   const text = placeholder ?? 'Select airport...';
-
   const items = data.map((item) => {
     return `
       <li class="select__item" data-type="item" data-id="${item.iata}">
         ${item.name} <br> ${item.iso}
-      </li> 
+      </li>
       `;
   });
 
@@ -62,8 +61,6 @@ class Select {
   clickHandler(event) {
     const { type } = event.target.dataset;
 
-    console.log(type);
-
     if (type === 'input' || type === 'value' || type === 'arrow') {
       this.toggle();
     }
@@ -102,6 +99,7 @@ class Select {
     this.$el
       .querySelector(`[data-type="input"]`)
       .classList.remove('danger_select');
+    valid = true;
     this.$el.querySelector(`[data-id="${id}"]`).classList.add('selected');
     this.options.onselect ? this.options.onselect(this.current) : null;
     this.close();
@@ -136,64 +134,6 @@ class Select {
   }
 }
 
-const airports = [
-  {
-    iata: 'ODS',
-    lon: '30.676718',
-    iso: 'UA',
-    status: 1,
-    name: 'Odessa International Airport',
-    continent: 'EU',
-    type: 'airport',
-    lat: '46.44101',
-    size: 'large',
-  },
-  {
-    iata: 'KBP',
-    lon: '30.895206',
-    iso: 'UA',
-    status: 1,
-    name: 'Boryspil International Airport',
-    continent: 'EU',
-    type: 'airport',
-    lat: '50.341244',
-    size: 'large',
-  },
-  {
-    iata: 'AMS',
-    lon: '4.763385',
-    iso: 'NL',
-    status: 1,
-    name: 'Amsterdam Airport Schiphol',
-    continent: 'EU',
-    type: 'airport',
-    lat: '52.30907',
-    size: 'large',
-  },
-  {
-    iata: 'SIN',
-    lon: '103.990204',
-    iso: 'SG',
-    status: 1,
-    name: 'Singapore Changi International Airport',
-    continent: 'AS',
-    type: 'airport',
-    lat: '1.361173',
-    size: 'large',
-  },
-  {
-    iata: 'PTY',
-    lon: '-79.38764',
-    iso: 'PA',
-    status: 1,
-    name: 'Tocumen International Airport',
-    continent: 'NA',
-    type: 'airport',
-    lat: '9.066897',
-    size: 'large',
-  },
-];
-
 const selectDep = new Select('#select-depart', {
   placeholder: 'Departure Airport',
   onselect(item) {
@@ -214,19 +154,24 @@ window.s1 = selectDep;
 window.s2 = selectArr;
 
 //
+// ===== Validation =====
+//
 
 const form = document.querySelector('.form');
-const submit = form.querySelector('.form__submit');
+const aside = form.querySelector('.form__aside');
+const cross = form.querySelector('.form__close');
+const openAll = [...document.querySelectorAll('.parallax-container__button')];
+let valid = true;
 
-function handleSubmit(e) {
+function validateForm(e) {
   const { target } = e;
+  const button = target.querySelector('.form__submit');
 
-  [...target.parentNode.children].forEach((el) => {
-    const input = el.children[0];
-
-    if (!input) {
+  [...target.children].forEach((el) => {
+    if (!el.classList.contains('form__label')) {
       return;
     }
+    const input = el.children[0];
 
     if (input.classList.contains('select')) {
       selInput = input.children[1];
@@ -237,7 +182,7 @@ function handleSubmit(e) {
       ) {
         selInput.classList.add('danger');
         selInput.classList.add('danger_select');
-        e.preventDefault();
+        valid = false;
       }
       return;
     }
@@ -246,31 +191,61 @@ function handleSubmit(e) {
       e.preventDefault();
       input.classList.add('danger');
       input.parentNode.classList.add('danger_label');
+      valid = false;
 
       input.addEventListener('click', () => {
         input.classList.remove('danger');
         input.parentNode.classList.remove('danger_label');
+        valid = true;
       });
     }
   });
+
+  return valid;
 }
 
-submit.addEventListener('click', handleSubmit);
-
-function toggleForm(e) {
-  const { target } = e;
-  const aside = form.querySelector('.form__aside');
-  const cross = form.querySelector('.form__close');
-
-  if (target !== aside && target !== cross) {
-    // console.log(target);
+function handleSubmit(e) {
+  e.preventDefault();
+  if (valid === false) {
     return;
   }
+  // localStorage.setItem(
+  //   'itinerary',
+  //   JSON.stringify([
+  //     selectArr.options.placeholder,
+  //     selectDep.options.placeholder,
+  //     form.children[2][0].value,
+  //     form.children[3][0].value,
+  //   ])
+  // );
+  window.location.href = './register.html';
+}
 
+function toggleForm(e) {
+  const { currentTarget } = e;
+  if (currentTarget !== aside && currentTarget !== cross) {
+    return;
+  }
   const container = form.parentNode;
-
   container.classList.toggle('_open');
   document.body.classList.toggle('_lock');
 }
 
-document.addEventListener('click', toggleForm);
+function openForm(e) {
+  const { target } = e;
+  if (!target.classList.contains('parallax-container__button')) {
+    return;
+  }
+  const container = form.parentNode;
+  if (container.classList.contains('_open')) {
+    return;
+  }
+  container.classList.add('_open');
+  document.body.classList.add('_lock');
+}
+
+form.addEventListener('submit', validateForm);
+form.addEventListener('submit', handleSubmit);
+aside.addEventListener('click', toggleForm);
+cross.addEventListener('click', toggleForm);
+openAll.forEach((open) => open.addEventListener('click', openForm));

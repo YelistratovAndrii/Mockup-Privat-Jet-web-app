@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Jet One Registry</title>
+  </head>
+  <body class="reg-body">
+    <div class="reg-bg"></div>
+    <div class="reg-wrapper">
+      <header class="reg-header">
+        <h1 class="reg-header__logo">
+          <span class="invis">Jet One</span
+          ><a href="./index.html">
+            <img src="./images/logo/logo_dark.png" alt="logo"
+          /></a>
+        </h1>
+      </header>
+      <main class="reg-main">
+        <h2 class="reg-main__title">Request Flight Quote</h2>
+        <form class="reg-form" id="reg-form">
+          <div class="input-box input-box_first-name">
+            <label class="input-box__label"
+              >First name
+              <input
+                type="text"
+                class="input-box__input"
+                data-input="name"
+                placeholder="enter your first name"
+                name="first-name"
+              />
+            </label>
+            <span class="input-box__error"></span>
+          </div>
+          <div class="input-box input-box_last-name">
+            <label class="input-box__label"
+              >Last name
+              <input
+                type="text"
+                class="input-box__input"
+                data-input="surname"
+                placeholder="enter your last name"
+                name="last-name"
+              />
+            </label>
+            <span class="input-box__error"></span>
+          </div>
+          <div class="input-box input-box_email">
+            <label class="input-box__label"
+              >Email
+              <input
+                type="text"
+                class="input-box__input"
+                data-input="email"
+                name="email"
+                placeholder="enter your email"
+              />
+            </label>
+            <span class="input-box__error"></span>
+          </div>
+          <div class="input-box input-box_tel">
+            <label class="input-box__label"
+              >Phone
+              <input
+                type="tel"
+                class="input-box__input"
+                data-input="phone"
+                name="tel"
+                placeholder="enter your phone"
+              />
+            </label>
+            <span class="input-box__error"></span>
+          </div>
+          <div class="input-box input-box_adress">
+            <label class="input-box__label"
+              >Adress
+              <input
+                type="text"
+                class="input-box__input"
+                data-input="adress"
+                name="adress"
+                placeholder="enter your adress"
+              />
+            </label>
+            <span class="input-box__error"></span>
+          </div>
+          <div class="input-box input-box_aditional">
+            <label class="input-box__label"
+              >Additional Info
+              <textarea
+                class="input-box__input"
+                name="additional"
+                placeholder="optional"
+              ></textarea>
+            </label>
+          </div>
+          <button class="reg-form__submit" type="submit">Submit</button>
+        </form>
+      </main>
+      <footer class="reg-footer">
+        <span class="reg-footer__span">
+          Made by
+          <a
+            target="_none"
+            href="https://www.linkedin.com/in/andrii-yelistratov/"
+          >
+            Yelistratov Andrii
+          </a>
+          . Inspired by Jet One @ 2007 – 2022 | Applewood House, 56 Victoria
+          Avenue, London, NE 14 4SR
+        </span>
+      </footer>
+    </div>
+  </body>
+  <script src="./js/register-form.js"></script>
+</html>

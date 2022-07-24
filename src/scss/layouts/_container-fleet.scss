@@ -42,13 +42,13 @@
     border-right: 2px solid rgb(85, 65, 0);
     border-bottom: 2px solid rgb(85, 65, 0);
     width: 100%;
+    transition: transform 0.3s ease;
 
     &:hover {
       color: $colorWhite;
       background-color: $colorLightGold;
       transform: scale(1.1);
       box-shadow: 3px 3px 5px $colorBlack;
-      transition: transform 0.5s ease;
     }
   }
 
@@ -68,11 +68,8 @@
   flex-direction: column;
 
   @include e(img-container) {
-    //
     height: 100px;
     max-width: 200px;
-    //
-    // border: 1px solid $colorLightGold;
     margin-bottom: 15px;
 
     & > img {
@@ -103,6 +100,12 @@
     width: fit-content;
     text-transform: uppercase;
     cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      transform: scale(1.1);
+      box-shadow: 3px 3px 5px $colorBlack;
+    }
   }
 
   &::after {
@@ -135,6 +138,8 @@
 
 @media screen and (min-width: 768px) {
   .container-fleet {
+    padding: 40px 30px 100px;
+
     @include e(title) {
       font-size: 3.5rem;
       line-height: 4.5rem;
@@ -155,6 +160,8 @@
 
 @media screen and (min-width: 992px) {
   .container-fleet {
+    padding: 40px 50px 100px;
+
     @include e(btn-list) {
       grid-gap: 30px;
     }
