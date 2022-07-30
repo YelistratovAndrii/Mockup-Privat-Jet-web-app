@@ -91,7 +91,8 @@ class Select {
 
   select(id) {
     this.selectedId = id;
-    this.$value.innerHTML = this.current.name + `<br>` + this.current.iso;
+    this.$value.innerHTML =
+      this.current.name + `, ` + `<br>` + this.current.iso;
     this.$el.querySelectorAll(`[data-type="item"]`).forEach((el) => {
       el.classList.remove('selected');
     });
@@ -209,15 +210,17 @@ function handleSubmit(e) {
   if (valid === false) {
     return;
   }
-  // localStorage.setItem(
-  //   'itinerary',
-  //   JSON.stringify([
-  //     selectArr.options.placeholder,
-  //     selectDep.options.placeholder,
-  //     form.children[2][0].value,
-  //     form.children[3][0].value,
-  //   ])
-  // );
+
+  localStorage.setItem(
+    'itinerary',
+    JSON.stringify([
+      selectArr.$value.textContent,
+      selectDep.$value.textContent,
+      form.children[2].children[0].value,
+      form.children[3].children[0].value,
+    ])
+  );
+
   window.location.href = './register.html';
 }
 

@@ -1,9 +1,17 @@
 const regForm = document.getElementById('reg-form');
 let valid = true;
 
+function renderItinerary(e) {
+  const itinerary = regForm.querySelector('[data-text]');
+  const raw = localStorage.getItem('itinerary');
+  const data = JSON.parse(raw);
+  itinerary.textContent = `${data[0]} >>> ${data[1]} | ${data[2]} | PAX: ${data[3]}`;
+}
+
 function validateRegForm(e) {
   e.preventDefault();
   const { target, currentTarget } = e;
+
   const inputs = [...target.querySelectorAll('[data-input]')];
   inputs.forEach((input) => {
     const value = input.value.trim();
@@ -91,6 +99,7 @@ function handleSubmit(e) {
   regForm.textContent = 'Your form has been successfully submitted.';
 }
 
+document.addEventListener('DOMContentLoaded', renderItinerary);
 regForm.addEventListener('click', clearValidation);
 regForm.addEventListener('submit', validateRegForm);
 regForm.addEventListener('submit', handleSubmit);

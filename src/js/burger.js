@@ -31,7 +31,6 @@ if (isMobile.any()) {
   function handleArrow(e) {
     const { target } = e;
     const menuList = document.querySelector('.menu__list');
-    // e.preventDefault();
 
     if (
       !target.classList.contains('menu__arrow') &&
@@ -44,6 +43,11 @@ if (isMobile.any()) {
       });
       return;
     }
+
+    if (target.parentElement.children[0].dataset.link === 'sub') {
+      e.preventDefault();
+    }
+
     if (target.parentElement.classList.contains('_active')) {
       target.parentElement.classList.remove('_active');
       return;
@@ -53,6 +57,7 @@ if (isMobile.any()) {
         li.classList.remove('_active');
       }
     });
+
     target.parentElement.classList.toggle('_active');
   }
 

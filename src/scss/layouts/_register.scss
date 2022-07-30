@@ -3,12 +3,9 @@
 }
 
 .reg-wrapper {
-  //
-  // max-width: 1200px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  //
   padding: 0 20px;
   margin: 0 auto;
   width: 100%;
@@ -102,6 +99,8 @@
   textarea {
     resize: none;
     outline: none;
+    line-height: 1.3rem;
+    min-height: 80px;
   }
 }
 
